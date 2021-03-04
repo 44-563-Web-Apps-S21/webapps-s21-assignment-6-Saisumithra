@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Looping Computation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+</head>
+ 
+<body>
+
+<h2>Saisumithra Jagarlamudi Computes</h2>
+
+<form>
+    <div class="form-group">
+    <label for="first_number">Enter a number </label>
+    <input type ="number" id="first_value" name="first_number" value=10> <br>
+
+    <label for="second_number">Enter a number </label>
+    <input type ="number" id="second_value" name="second_number" value=2> <br>
+    </div>
+    <input type="button" class= "btn btn-info" onclick="permutations()" value="Compute">
+</form>
+
+<div id="result" > Result </div>
+
+<form>
+    <label for="plus"> + </label>
+    <input type ="radio" onclick="processRadio()" id="plus" name="plus" value=plus> <br>
+     
+    <label for="minus"> - </label>
+    <input type ="radio" onclick="processRadio()" id="minus" name="minus" value=minus> <br>
+
+    <label for="times"> * </label>
+    <input type ="radio" onclick="processRadio()" id="times" name="times" value=times> <br>
+
+    <label for="divide"> / </label>
+    <input type ="radio" onclick="processRadio()" id="divide" name="divide" value=divide> <br>
+
+   
+</form>
+
+
+<p id="result1"> Result </p>
+
+<script> 
+function permutations(){
+    let va1ue1=document.getElementById("first_value").value
+    let value2=document.getElementById("second_value").value
+    let product=1
+    for(i=va1ue1; i>=(va1ue1-value2+1);i--){
+        product=product*i
+    }
+    document.getElementById("result").innerHTML=va1ue1+" permute "+value2+" is "+product
+
+}
+
+function processRadio(){
+    
+    let value3=parseInt(document.getElementById("first_value").value)
+    let value4=parseInt(document.getElementById("second_value").value)
+    if(document.getElementById("plus").checked)
+        document.getElementById("result1").innerHTML=value3+value4
+    else if(document.getElementById("minus").checked)
+        document.getElementById("result1").innerHTML=value3-value4
+    else if(document.getElementById("times").checked)
+        document.getElementById("result1").innerHTML=value3*value4
+    else if(document.getElementById("divide").checked)
+        document.getElementById("result1").innerHTML=value3/value4
+}
+</script>
+
+
+
+</body>
+</html> 
