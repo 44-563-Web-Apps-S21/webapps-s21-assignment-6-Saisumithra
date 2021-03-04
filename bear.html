@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CheckBoxes</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+    
+ 
+<body>
+
+<h2>Saisumithra Jagarlamudi builds a bear</h2>
+
+<form>
+    <div class="form-group">
+    <input type ="checkbox" id="hat" name="hat" value="hat"> 
+    <label for="hat">hat </label><br>
+    </div>
+    <div class="form-group">
+    <input type ="checkbox" id="scarf" name="scarf" value="scarf"> 
+    <label for="scarf">scarf</label><br>
+    </div>
+    <div class="form-group">
+    <input type ="checkbox" id="shirt" name="shirt" value="shirt"> 
+    <label for="shirt">shirt </label><br>
+    </div>
+    <input type="button" class="btn btn-secondary" onclick="startBear()" value="Start a bear">
+</form>
+
+<form>
+    <div class="form-group">
+    <label for="property"> Enter a property </label>
+    <input type ="text" class="form-control" id="property" name="property" value=color> <br>
+    </div>
+    <div class="form-group">
+    <label for="value"> Enter a value </label>
+    <input type ="text" class = "form-control" id="value" name="value"> <br>
+    </div>
+    <input type="button" class = "btn btn-primary" onclick="updatebear()" value="Update the bear">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+var my_bear = { };
+function startBear (){
+    my_bear={};
+    
+    if(document.getElementById("hat").checked){
+        my_bear["hat"]=true;
+    }else{
+        my_bear["hat"]=false;
+    }
+
+    if(document.getElementById("scarf").checked){
+        my_bear["scarf"]=true;
+    }else{
+        my_bear["scarf"]=false;
+    }
+
+    if(document.getElementById("shirt").checked){
+        my_bear["shirt"]=true;
+    }else{
+        my_bear["shirt"]=false;
+    }
+    
+    out = document.getElementById("result")
+    my_bear= JSON.stringify(my_bear);
+    out.innerHTML=my_bear
+    my_bear=JSON.parse(my_bear)
+}
+
+function updatebear(){
+    var properties= document.getElementById("property").value;
+    var values= document.getElementById("value").value;
+    my_bear[properties] = values;
+    out = document.getElementById("result")
+    my_bear= JSON.stringify(my_bear);
+    out.innerHTML=my_bear
+    my_bear=JSON.parse(my_bear)
+}
+</script>
+
+</body>
+</html> 
